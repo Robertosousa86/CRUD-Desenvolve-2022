@@ -20,5 +20,12 @@
   "bugs": {
     "url": "https://github.com/Robertosousa86/CRUD-Desenvolve-2022/issues"
   },
-  "homepage": "https://github.com/Robertosousa86/CRUD-Desenvolve-2022#readme"
+  "homepage": "https://github.com/Robertosousa86/CRUD-Desenvolve-2022#readme",
+  "dependencies": {
+    "express": "^4.17.2",
+    "mongoose": "^6.2.1"
+  },
+  "devDependencies": {
+    "nodemon": "^2.0.15"
+  }
 }
