@@ -3,7 +3,10 @@ const routes = require('./routes');
 const database = require('./config/database');
 
 const app = express();
+
+app.use(express.urlencoded({ extended: true }));
 app.use(express.json());
+app.use(express.static('public'));
 // Configura o express e retornar uma nova instância da aplicação configurada.
 const configureExpress = () => {
   app.use('/', routes);
