@@ -1,8 +1,15 @@
 const bcrypt = require('bcrypt');
+const jwt = require('jsonwebtoken');
 
 class UserController {
   constructor(User) {
     this.User = User;
+  }
+
+  tokenGenerator(params = {}) {
+    return jwt.sign(params, process.env.SECRET, {
+      expiresIn: 86400,
+    });
   }
 
   async create(req, res) {
@@ -25,7 +32,7 @@ class UserController {
 
       return res
         .status(201)
-        .send({ message: 'Usuário cadastrado com sucesso!' });
+        .send({ user, token: this.tokenGenerator({ id: user.id }) });
     } catch (err) {
       return res.send(err.message);
     }
